@@ -1,0 +1,287 @@
+/* style.css - Thème vert pastel clair
+   Pour usage avec tes pages : index, accueil élève/prof, ccr, etc.
+   Palette :
+   - pastel principal : #BFE8C6
+   - pastel foncé (hover) : #88C07A
+   - texte foncé : #263238
+   - fond clair : #F6F8F7
+*/
+
+:root{
+  --pastel: #BFE8C6;
+  --pastel-dark: #88C07A;
+  --bg: #F6F8F7;
+  --card-bg: #FFFFFF;
+  --muted: #98A9A0;
+  --text: #263238;
+  --accent: #DFEDE1;
+  --danger: #DF6B4C;
+  --shadow: 0 6px 18px rgba(38,50,56,0.06);
+  --radius: 12px;
+  --pad: 18px;
+  --container-max: 1100px;
+}
+
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, #FFFFFF 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Container centralisé */
+.container {
+  width: calc(100% - 40px);
+  max-width: var(--container-max);
+  margin: 30px auto;
+}
+
+/* TITRE Aperçu */
+.apercu-title {
+  text-align:center;
+  font-weight:700;
+  font-size:28px;
+  margin: 10px 0 30px;
+  letter-spacing:1px;
+}
+
+/* NAV / header */
+header .menu{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(191,232,198,0.4), rgba(191,232,198,0.15));
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+.logo{
+  font-weight:700;
+  font-size:18px;
+  color:var(--text);
+}
+.menu-buttons { display:flex; gap:10px; align-items:center; }
+
+/* Buttons */
+.btn-menu, .btn-submit, .btn-ghost {
+  display:inline-block;
+  border: none;
+  padding: 10px 16px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 3px 8px rgba(38,50,56,0.06);
+}
+.btn-menu {
+  background:transparent;
+  color:var(--pastel-dark);
+  border: 1px solid rgba(136,192,122,0.18);
+}
+.btn-menu:hover{ transform:translateY(-2px); }
+
+.btn-submit{
+  width:100%;
+  background:var(--pastel);
+  color:#fff;
+  border: 1px solid rgba(0,0,0,0.04);
+  padding:12px 18px;
+}
+.btn-submit:hover{
+  background:var(--pastel-dark);
+  transform:translateY(-2px);
+}
+
+/* Formulaire - carte */
+.form-container {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: calc(var(--pad) + 6px);
+  box-shadow: var(--shadow);
+  max-width: 520px;
+  margin: 0 auto 28px;
+}
+
+/* Visual two-column preview (connexion + oubli) */
+.preview-grid {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items:start;
+  margin-bottom: 36px;
+}
+@media (max-width:900px){
+  .preview-grid{ grid-template-columns: 1fr; }
+}
+
+/* Form fields */
+.form-group{ margin-bottom:14px; }
+.form-group label{
+  display:block;
+  margin-bottom:8px;
+  font-size:14px;
+  color:var(--text);
+}
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #e6e9e8;
+  background:#fbfdfa;
+  font-size:14px;
+  color:var(--text);
+  outline:none;
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+input:focus, textarea:focus {
+  border-color: var(--pastel-dark);
+  box-shadow: 0 6px 18px rgba(136,192,122,0.12);
+}
+
+/* Link style */
+a{
+  color:var(--pastel-dark);
+  text-decoration:none;
+  font-weight:600;
+}
+a:hover{ text-decoration:underline; }
+
+/* Large card sections (accueil élève/prof) */
+.section-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(191,232,198,0.03) 100%);
+  border-radius: 10px;
+  padding: 22px;
+  margin: 26px 0;
+  box-shadow: var(--shadow);
+}
+
+/* welcome bar inside card */
+.welcome-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding-bottom:12px;
+  border-bottom:1px solid rgba(0,0,0,0.04);
+  margin-bottom:18px;
+}
+.welcome-row h3{
+  margin:0;
+  font-size:16px;
+  font-weight:700;
+}
+
+/* Action tiles (liste, créer, commentaires...) */
+.tiles {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin: 10px 0;
+}
+.tile {
+  flex:1 1 200px;
+  min-width:160px;
+  background:#fff;
+  border-radius:10px;
+  padding:14px;
+  border:1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 6px 16px rgba(38,50,56,0.04);
+  text-align:center;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.tile:hover{
+  transform:translateY(-6px);
+  border-color: rgba(136,192,122,0.25);
+  box-shadow: 0 12px 30px rgba(38,50,56,0.06);
+}
+.tile small { display:block; color:var(--muted); margin-top:8px; font-size:12px; }
+
+/* Table / compte-rendu style */
+.table-container {
+  margin: 20px 0;
+}
+.table-container table{
+  width:100%;
+  border-collapse:collapse;
+  border-radius:8px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,0.06);
+}
+.table-container thead th {
+  background: linear-gradient(90deg, rgba(191,232,198,0.15), rgba(191,232,198,0.05));
+  padding:12px 14px;
+  text-align:left;
+  font-weight:700;
+}
+.table-container tbody td{
+  padding:12px 14px;
+  background:#fff;
+  border-top:1px solid rgba(0,0,0,0.03);
+  color:var(--text);
+}
+
+/* small modifier link */
+.table-container a{
+  color:var(--pastel-dark);
+  font-weight:600;
+  font-size:13px;
+}
+
+/* Deconnexion button centered */
+.logout-row {
+  text-align:center;
+  margin-top:18px;
+}
+.logout-row .btn-logout{
+  background:#E07B4C;
+  color:#fff;
+  border-radius:8px;
+  padding:8px 14px;
+  border:none;
+  cursor:pointer;
+}
+.logout-row .btn-logout:hover{ opacity:0.95; transform:translateY(-2px); }
+
+/* utility */
+.center { text-align:center; }
+.small { font-size:13px; color:var(--muted); }
+.hint { font-size:13px; color:#8E9A93; }
+
+/* Footer spacing */
+.footer-space { height:40px; }
+
+/* Responsive tweaks */
+@media (max-width:700px){
+  .tiles { flex-direction:column; }
+  .welcome-row { flex-direction:column; align-items:flex-start; gap:8px; }
+  .menu .logo { font-size:16px; }
+  .container { width: calc(100% - 28px); }
+}
+.btn-deco {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #c7eac7; /* Vert pastel */
+    border: 1px solid #a8d5a8;
+    border-radius: 8px;
+    color: #2d5a2d;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.btn-deco:hover {
+    background-color: #b6e3b6;
+    border-color: #8acb8a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
